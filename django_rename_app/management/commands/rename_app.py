@@ -142,9 +142,9 @@ class Command(BaseCommand):
                             )
 
                         query = (
-                            f'ALTER TABLE {old_table_name} '
-                            f'RENAME CONSTRAINT {constraint} '
-                            f'TO {new_constraint_name}'
+                            f'ALTER TABLE "{old_table_name}" '
+                            f'RENAME CONSTRAINT "{constraint}" '
+                            f'TO "{new_constraint_name}"'
                         )
 
                         cursor.execute(query)
@@ -181,7 +181,7 @@ class Command(BaseCommand):
                             f'{new_table_name}{index[len(old_table_name):]}',
                             connection.ops.max_name_length(),
                         )
-                        query = f'ALTER INDEX {index} ' f'RENAME TO {new_name}'
+                        query = f'ALTER INDEX "{index}" ' f'RENAME TO "{new_name}"'
 
                         cursor.execute(query)
 
